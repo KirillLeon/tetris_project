@@ -60,3 +60,12 @@ color, next_color = get_color(), get_color()
 score, lines = 0, 0
 # Переменная, отвечающая за начисление очков
 scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
+
+
+# Проверка границ
+def check_borders():
+    if figure[i].x < 0 or figure[i].x > W - 1:
+        return False
+    elif figure[i].y > H - 1 or field[figure[i].y][figure[i].x]:
+        return False
+    return True
