@@ -79,3 +79,10 @@ def get_record():
     except FileNotFoundError:
         with open('record', 'w') as f:
             f.write('0')
+
+
+# Обновление рекорда
+def set_record(record, score):
+    rec = max(int(record), score)
+    with open('record', 'w') as f:
+        f.write(str(rec))
