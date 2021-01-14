@@ -183,3 +183,18 @@ while True:
     sc.blit(font.render(str(score), True, pygame.Color('white')), (550, 840))
     sc.blit(title_record, (525, 650))
     sc.blit(font.render(record, True, pygame.Color('gold')), (550, 710))
+    # Завершение игры
+    for i in range(W):
+        if field[0][i]:
+            set_record(record, score)
+            field = [[0 for i in range(W)] for i in range(H)]
+            anim_count, anim_speed, anim_limit = 0, 60, 2000
+            score = 0
+            for i_rect in grid:
+                pygame.draw.rect(game_sc, get_color(), i_rect)
+                sc.blit(game_sc, (20, 20))
+                pygame.display.flip()
+                clock.tick(200)
+    # смена (отрисовка) кадра:
+    pygame.display.flip()
+    clock.tick(FPS)
