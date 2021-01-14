@@ -132,3 +132,15 @@ while True:
                 next_figure, next_color = deepcopy(choice(figures)), get_color()
                 anim_limit = 2000
                 break
+    # Поворот фигуры
+    center = figure[0]
+    figure_old = deepcopy(figure)
+    if rotate:
+        for i in range(4):
+            x = figure[i].y - center.y
+            y = figure[i].x - center.x
+            figure[i].x = center.x - x
+            figure[i].y = center.y + y
+            if not check_borders():
+                figure = deepcopy(figure_old)
+                break
