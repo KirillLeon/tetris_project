@@ -1,5 +1,5 @@
 # Импорт библиотек
-import pygame, sys
+import pygame
 from copy import deepcopy
 from random import choice, randrange
 
@@ -66,6 +66,7 @@ scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
 pygame.mixer.music.load('sounds/background.mp3')
 pygame.mixer.music.play(-1)
 music_pause = False
+
 
 # Проверка границ
 def check_borders():
