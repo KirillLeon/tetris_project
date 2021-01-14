@@ -86,3 +86,28 @@ def set_record(record, score):
     rec = max(int(record), score)
     with open('record', 'w') as f:
         f.write(str(rec))
+
+
+# Основной цикл
+while True:
+    record = get_record()
+    dx, rotate = 0, False
+    sc.blit(bg, (0, 0))
+    sc.blit(game_sc, (20, 20))
+    game_sc.blit(game_bg, (0, 0))
+    # Задержка удаления фигуры
+    for i in range(lines):
+        pygame.time.wait(200)
+    # Управление
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                dx = -1
+            elif event.key == pygame.K_RIGHT:
+                dx = 1
+            elif event.key == pygame.K_DOWN:
+                anim_limit = 100
+            elif event.key == pygame.K_UP:
+                rotate = True
