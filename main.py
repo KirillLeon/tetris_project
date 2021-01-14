@@ -69,3 +69,13 @@ def check_borders():
     elif figure[i].y > H - 1 or field[figure[i].y][figure[i].x]:
         return False
     return True
+
+
+# Получение рекорда
+def get_record():
+    try:
+        with open('record') as f:
+            return f.readline()
+    except FileNotFoundError:
+        with open('record', 'w') as f:
+            f.write('0')
