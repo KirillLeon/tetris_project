@@ -157,3 +157,12 @@ while True:
         else:
             anim_speed += 3
             lines += 1
+    # Начисление очков
+    score += scores[lines]
+    # Отрисовка раэметки поля
+    [pygame.draw.rect(game_sc, (40, 40, 40), i_rect, 1) for i_rect in grid]
+    # Отрисовка фигур
+    for i in range(4):
+        figure_rect.x = figure[i].x * TILE
+        figure_rect.y = figure[i].y * TILE
+        pygame.draw.rect(game_sc, color, figure_rect)
