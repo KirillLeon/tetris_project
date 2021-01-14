@@ -63,7 +63,9 @@ score, lines = 0, 0
 # Переменная, отвечающая за начисление очков
 scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
 
+# Загрузка фоновой музыки
 pygame.mixer.music.load('sounds/background.mp3')
+# Воспроизведение музыки
 pygame.mixer.music.play(-1)
 music_pause = False
 
