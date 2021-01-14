@@ -1,5 +1,5 @@
 # Импорт библиотек
-import pygame
+import pygame, sys
 from copy import deepcopy
 from random import choice, randrange
 
@@ -10,10 +10,10 @@ GAME_RES = W * TILE, H * TILE
 RES = 750, 940
 FPS = 60
 
-# Название программы
-pygame.display.set_caption("TETRIS")
 # инициализация Pygame:
 pygame.init()
+# Название программы
+pygame.display.set_caption("TETRIS")
 # sc — холст, на котором нужно рисовать:
 sc = pygame.display.set_mode(RES)
 game_sc = pygame.Surface(GAME_RES)
@@ -63,6 +63,9 @@ score, lines = 0, 0
 # Переменная, отвечающая за начисление очков
 scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
 
+pygame.mixer.music.load('sounds/background.mp3')
+pygame.mixer.music.play(-1)
+music_pause = False
 
 # Проверка границ
 def check_borders():
@@ -113,6 +116,18 @@ while True:
                 anim_limit = 100
             elif event.key == pygame.K_UP:
                 rotate = True
+            elif event.key == pygame.K_1 and music_pause:
+                pygame.mixer.music.pause()
+                music_pause = False
+            elif event.key == pygame.K_1 and not music_pause:
+                pygame.mixer.music.unpause()
+                music_pause = True
+            elif event.key == pygame.K_2:
+                pygame.mixer.music.unpause()
+                pygame.mixer.music.set_volume(0.5)
+            elif event.key == pygame.K_3:
+                pygame.mixer.music.unpause()
+                pygame.mixer.music.set_volume(1)
     # Движение по оси x
     figure_old = deepcopy(figure)
     for i in range(4):
