@@ -44,3 +44,19 @@ game_bg = pygame.image.load('img/bg2.jpg').convert()
 # Шрифты для игры
 main_font = pygame.font.Font('font/font.ttf', 65)
 font = pygame.font.Font('font/font.ttf', 45)
+
+# Рендер
+title_tetris = main_font.render('TETRIS', True, pygame.Color('darkorange'))
+title_score = font.render('score:', True, pygame.Color('green'))
+title_record = font.render('record:', True, pygame.Color('purple'))
+
+get_color = lambda: (randrange(30, 256), randrange(30, 256), randrange(30, 256))
+
+# Переменные с фигурами
+figure, next_figure = deepcopy(choice(figures)), deepcopy(choice(figures))
+# Переменные с цветами
+color, next_color = get_color(), get_color()
+
+score, lines = 0, 0
+# Переменная, отвечающая за начисление очков
+scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
