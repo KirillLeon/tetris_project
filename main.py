@@ -10,6 +10,8 @@ GAME_RES = W * TILE, H * TILE
 RES = 750, 940
 FPS = 60
 
+# Название программы
+pygame.display.set_caption("TETRIS")
 # инициализация Pygame:
 pygame.init()
 # sc — холст, на котором нужно рисовать:
@@ -46,9 +48,9 @@ main_font = pygame.font.Font('font/font.ttf', 65)
 font = pygame.font.Font('font/font.ttf', 45)
 
 # Рендер
-title_tetris = main_font.render('TETRIS', True, pygame.Color('darkorange'))
-title_score = font.render('score:', True, pygame.Color('green'))
-title_record = font.render('record:', True, pygame.Color('purple'))
+title_tetris = main_font.render('TETRIS', True, pygame.Color('#1d1018'))
+title_score = font.render('score:', True, pygame.Color('brown'))
+title_record = font.render('record:', True, pygame.Color('blue'))
 
 get_color = lambda: (randrange(30, 256), randrange(30, 256), randrange(30, 256))
 
