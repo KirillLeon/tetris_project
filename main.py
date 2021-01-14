@@ -111,3 +111,10 @@ while True:
                 anim_limit = 100
             elif event.key == pygame.K_UP:
                 rotate = True
+    # Движение по оси x
+    figure_old = deepcopy(figure)
+    for i in range(4):
+        figure[i].x += dx
+        if not check_borders():
+            figure = deepcopy(figure_old)
+            break
