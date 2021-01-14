@@ -67,6 +67,8 @@ scores = {0: 0, 1: 100, 2: 300, 3: 700, 4: 1500}
 pygame.mixer.music.load('sounds/background.mp3')
 # Воспроизведение музыки
 pygame.mixer.music.play(-1)
+# Звук окончания игры
+game_over_sound = pygame.mixer.Sound('sounds/game_over_sound.mp3')
 music_pause = False
 
 
@@ -206,6 +208,8 @@ while True:
     # Завершение игры
     for i in range(W):
         if field[0][i]:
+            # Звук окончания игры
+            game_over_sound.play(1)
             set_record(record, score)
             field = [[0 for i in range(W)] for i in range(H)]
             anim_count, anim_speed, anim_limit = 0, 60, 2000
