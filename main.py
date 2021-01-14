@@ -144,3 +144,16 @@ while True:
             if not check_borders():
                 figure = deepcopy(figure_old)
                 break
+    # Проверка заполнения линий
+    line, lines = H - 1, 0
+    for row in range(H - 1, -1, -1):
+        count = 0
+        for i in range(W):
+            if field[row][i]:
+                count += 1
+            field[line][i] = field[row][i]
+        if count < W:
+            line -= 1
+        else:
+            anim_speed += 3
+            lines += 1
