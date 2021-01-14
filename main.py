@@ -118,3 +118,17 @@ while True:
         if not check_borders():
             figure = deepcopy(figure_old)
             break
+    # Движение по оси y
+    anim_count += anim_speed
+    if anim_count > anim_limit:
+        anim_count = 0
+        figure_old = deepcopy(figure)
+        for i in range(4):
+            figure[i].y += 1
+            if not check_borders():
+                for i in range(4):
+                    field[figure_old[i].y][figure_old[i].x] = color
+                figure, color = next_figure, next_color
+                next_figure, next_color = deepcopy(choice(figures)), get_color()
+                anim_limit = 2000
+                break
