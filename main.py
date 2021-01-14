@@ -122,10 +122,10 @@ while True:
             elif event.key == pygame.K_UP:
                 rotate = True
             elif event.key == pygame.K_1 and music_pause:
-                pygame.mixer.music.pause()
+                pygame.mixer.music.unpause()
                 music_pause = False
             elif event.key == pygame.K_1 and not music_pause:
-                pygame.mixer.music.unpause()
+                pygame.mixer.music.pause()
                 music_pause = True
             elif event.key == pygame.K_2:
                 pygame.mixer.music.unpause()
